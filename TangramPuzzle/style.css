@@ -1,4 +1,5 @@
-html, body {
+html, 
+body {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -6,4 +7,78 @@ html, body {
     display: flex;
     justify-content: center; 
     align-items: center;     
+}
+.board {
+    position: relative;
+    width: 848.53px;
+    height: 848.53px;
+}
+.triangle-left,
+.triangle-top,
+.triangle-right,
+.triangle-corner,
+.triangle-middle,
+.square,
+.parallelogram {
+    position: absolute;
+}
+.triangle-left {
+	width: 0;
+	height: 0;
+    top: 0;
+    left: 0;
+	border-top: 424.264px solid transparent;
+    border-left: 424.264px solid #761b91;
+	border-bottom: 424.264px solid transparent;
+}
+.triangle-top {
+	width: 0;
+	height: 0;
+    top: 0;
+    left: 0;
+	border-left: 424.264px solid transparent;
+	border-right: 424.264px solid transparent;
+	border-top: 424.264px solid #4a47dd;
+}
+.triangle-right {
+	width: 0;
+	height: 0;
+    top: 0;
+    right: 0;
+	border-top: 212.134px solid transparent;
+    border-right: 212.134px solid #e53500;
+	border-bottom: 212.134px solid transparent;
+}
+.triangle-corner {
+    width: 0;
+    height: 0;
+    bottom: 0;
+    right: 0;
+    border-left: 424.264px solid transparent;
+    border-bottom: 424.264px solid #380c6b;
+}
+.square {
+    height: 300px;
+    width: 300px;  /*274.249px; 62.34px*/
+    top: 273.5px;
+    right: 63px;
+    transform: rotate(45deg);
+    background-color: #054b1c;
+}
+.triangle-middle {
+	width: 0;
+	height: 0;
+    bottom: 212.134px;
+    left: 212.134px;
+	border-left: 212.134px solid transparent;
+	border-right: 212.134px solid transparent;
+	border-bottom: 212.134px solid #288f72;
+}
+.parallelogram {
+    width: 424.264px;
+    height: 212.134px;
+    background-color: #e67e22;
+    bottom: 0;
+    left: 106.1px;
+    transform: skew(-45deg);
 }
