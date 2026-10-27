@@ -5,6 +5,10 @@ $(document).ready(function () {
 const pieces = document.querySelectorAll(".tangram-piece");
 const board = document.querySelector(".tangram-board");
 const rotateBtn = document.querySelector("#rotate-btn");
+const leftBtn = document.querySelector("#left-btn");
+const rightBtn = document.querySelector("#right-btn");
+const upBtn = document.querySelector("#up-btn");
+const downBtn = document.querySelector("#down-btn");
 
 let selectedPiece = null;
 

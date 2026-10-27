@@ -9,16 +9,26 @@
 </head>
 
 <body>
-    <div class="tangram-board">
-        <div class="tangram-piece triangle-left"></div>
-        <div class="tangram-piece triangle-top"></div>
-        <div class="tangram-piece triangle-right"></div>
-        <div class="tangram-piece triangle-corner"></div>
-        <div class="tangram-piece square"></div>
-        <div class="tangram-piece triangle-middle "></div>
-        <div class="tangram-piece parallelogram"></div>
-        <!-- below symbol is from a Unicode characters/symbol -->
-        <button id="rotate-btn" class="rotate-btn" aria-label="Rotate selected piece">↻</button>
+    <div class="game-container">
+        <div class="tangram-board">
+            <div class="tangram-piece triangle-left"></div>
+            <div class="tangram-piece triangle-top"></div>
+            <div class="tangram-piece triangle-right"></div>
+            <div class="tangram-piece triangle-corner"></div>
+            <div class="tangram-piece square"></div>
+            <div class="tangram-piece triangle-middle "></div>
+            <div class="tangram-piece parallelogram"></div>
+            <!-- below symbol is from a Unicode characters/symbol -->
+            <button id="rotate-btn" class="rotate-btn" aria-label="Rotate selected piece">↻</button>
+            <button id="left-btn" class="left-btn" aria-label="Shift left selected piece">←</button>
+            <button id="right-btn" class="right-btn" aria-label="Shift right selected piece">→</button>
+            <button id="up-btn" class="up-btn" aria-label="Rotate Shift up piece">ꜛ</button>
+            <button id="down-btn" class="down-btn" aria-label="Shift down selected piece">ꜜ</button>
+        </div>
+        <div class="target-board">
+            <h3>Target Shape</h3>
+            <img src="/TangramPuzzle/images/TargetImage.png" alt="Tangram target outline">
+        </div>
     </div>
     
 

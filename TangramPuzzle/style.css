@@ -8,6 +8,18 @@ body {
     justify-content: center; 
     align-items: center;     
 }
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+}
+.target-board img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
 .tangram-board {
     position: relative;
     width: 848.53px;
@@ -84,7 +96,11 @@ body {
     transform: skew(-45deg);
 }
 
-.rotate-btn {
+.rotate-btn,
+.left-btn,
+.right-btn,
+.up-btn,
+.down-btn {
   position: absolute;
   display: none;
   width: 40px;
