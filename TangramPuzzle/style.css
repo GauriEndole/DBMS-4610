@@ -8,20 +8,21 @@ body {
     justify-content: center; 
     align-items: center;     
 }
-.board {
+.tangram-board {
     position: relative;
     width: 848.53px;
     height: 848.53px;
 }
-.triangle-left,
-.triangle-top,
-.triangle-right,
-.triangle-corner,
-.triangle-middle,
-.square,
-.parallelogram {
+.tangram-piece {
     position: absolute;
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
 }
+.tangram-piece:active {
+  cursor: grabbing;
+}
+
 .triangle-left {
 	width: 0;
 	height: 0;
@@ -81,4 +82,18 @@ body {
     bottom: 0;
     left: 106.1px;
     transform: skew(-45deg);
+}
+
+.rotate-btn {
+  position: absolute;
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 2px 8px #0003;
+  font-size: 26px;
+  cursor: pointer;
+  z-index: 100;
 }
