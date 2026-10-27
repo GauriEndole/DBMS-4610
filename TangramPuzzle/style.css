@@ -11,12 +11,13 @@ body {
 .game-container {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     gap: 30px;
 }
+
 .target-board img {
     display: block;
-    max-width: 100%;
+    width: 720px;
     height: auto;
 }
 
@@ -24,6 +25,7 @@ body {
     position: relative;
     width: 848.53px;
     height: 848.53px;
+    scale: 0.5;
 }
 .tangram-piece {
     position: absolute;
