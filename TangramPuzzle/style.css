@@ -17,7 +17,6 @@ body {
 
 .target-board img {
     display: block;
-    width: 720px;
     height: auto;
 }
 
@@ -25,7 +24,6 @@ body {
     position: relative;
     width: 848.53px;
     height: 848.53px;
-    scale: 0.5;
 }
 .tangram-piece {
     position: absolute;
