@@ -4,9 +4,12 @@ body {
     padding: 0;
     width: 100%;
     height: 100%;
+}
+body {
     display: flex;
-    justify-content: center; 
-    align-items: center;     
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .game-container {
     display: flex;
@@ -18,6 +21,8 @@ body {
 .target-board img {
     display: block;
     height: auto;
+    transform: scale(1.2);
+    transform-origin: center center;
 }
 
 .tangram-board {
@@ -112,4 +117,41 @@ body {
   font-size: 26px;
   cursor: pointer;
   z-index: 100;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 60px;
+}
+
+.controls button {
+    position: static;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 60%;
+    background: white;
+    box-shadow: 0 2px 8px #0003;
+    font-size: 40px;
+    cursor: pointer;
+}
+.piece-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+#piece-dropdown {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
 }

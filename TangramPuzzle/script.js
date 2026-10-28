@@ -11,6 +11,8 @@ const upBtn = document.querySelector("#up-btn");
 const downBtn = document.querySelector("#down-btn");
 
 let selectedPiece = null;
+const MOVE_STEP = 1;
+const pieceDropdown = document.querySelector("#piece-dropdown");
 
 function positionRotateButton() {
     if (!selectedPiece) return;
@@ -71,7 +73,9 @@ pieces.forEach((piece) => {
 
         piece.style.left = `${x}px`;
         piece.style.top = `${y}px`;
-
+        piece.style.right = "auto";
+        piece.style.bottom = "auto";
+        
         positionRotateButton();
     });
 
@@ -82,28 +86,112 @@ pieces.forEach((piece) => {
     piece.addEventListener("pointercancel", () => {
         isDragging = false;
     });
-    rotateBtn.addEventListener("click", () => {
-        if (!selectedPiece) return;
 
-        const current = Number(selectedPiece.dataset.rotation || 0);
-        const next = (current + 45) % 360;
+});
+rotateBtn.addEventListener("click", () => {
+    if (!selectedPiece) return;
 
-        selectedPiece.dataset.rotation = next;
-        selectedPiece.style.transform = `rotate(${next}deg)`;
+    const current = Number(selectedPiece.dataset.rotation || 0);
+    const next = (current + 45) % 360;
 
-        positionRotateButton();
-    });
-    document.addEventListener("pointerdown", (event) => {
-        if (
-        !event.target.closest(".tangram-piece") &&
-        !event.target.closest("#rotate-btn")
-        ) {
-        selectedPiece = null;
-        rotateBtn.style.display = "none";
-        }
-    });
+    selectedPiece.dataset.rotation = next;
+    selectedPiece.style.transform = `rotate(${next}deg)`;
 });
 
+// Move selected piece
+function moveSelectedPiece(dx, dy) {
+    if (!selectedPiece) return;
 
+    const currentLeft = parseFloat(selectedPiece.style.left) ||
+        selectedPiece.offsetLeft;
+    const currentTop = parseFloat(selectedPiece.style.top) ||
+        selectedPiece.offsetTop;
 
+    selectedPiece.style.left = `${currentLeft + dx}px`;
+    selectedPiece.style.top = `${currentTop + dy}px`;
+    selectedPiece.style.right = "auto";
+    selectedPiece.style.bottom = "auto";
+}
+
+leftBtn.addEventListener("click", () => {
+    moveSelectedPiece(-MOVE_STEP, 0);
+});
+
+rightBtn.addEventListener("click", () => {
+    moveSelectedPiece(MOVE_STEP, 0);
+});
+
+upBtn.addEventListener("click", () => {
+    moveSelectedPiece(0, -MOVE_STEP);
+});
+
+downBtn.addEventListener("click", () => {
+    moveSelectedPiece(0, MOVE_STEP);
+});
+
+// Select a piece using the dropdown
+pieceDropdown.addEventListener("change", () => {
+    const selectedClass = pieceDropdown.value;
+
+    selectedPiece = document.querySelector(
+        `.tangram-piece.${selectedClass}`
+    );
+
+    pieces.forEach((piece) => {
+        piece.style.zIndex = 1;
+    });
+
+    if (selectedPiece) {
+        selectedPiece.style.zIndex = 10;
+    }
+});
+
+// function updatePieceDropdown() {
+//     pieces.forEach((piece) => {
+//         const pieceClass = [...piece.classList].find(
+//             (className) => className !== "tangram-piece"
+//         );
+
+//         const option = pieceDropdown.querySelector(
+//             `option[value="${pieceClass}"]`
+//         );
+
+//         if (option) {
+//             const angle = Number(piece.dataset.rotation || 0);
+//             const labels = {
+//                 "triangle-left": "Purple Triangle",
+//                 "triangle-top": "Blue Triangle",
+//                 "triangle-right": "Red Triangle",
+//                 "triangle-corner": "Dark Purple Triangle",
+//                 "square": "Green Square",
+//                 "triangle-middle": "Teal Triangle",
+//                 "parallelogram": "Orange Parallelogram"
+//             };
+
+//             option.textContent = `${labels[pieceClass]} — ${angle}°`;
+//         }
+//     });
+// }
+// rotateBtn.addEventListener("click", () => {
+//     if (!selectedPiece) return;
+
+//     const current = Number(selectedPiece.dataset.rotation || 0);
+//     const next = (current + 45) % 360;
+
+//     selectedPiece.dataset.rotation = next;
+//     selectedPiece.style.transform = `rotate(${next}deg)`;
+// });
+// rotateBtn.addEventListener("click", () => {
+//     if (!selectedPiece) return;
+
+//     const current = Number(selectedPiece.dataset.rotation || 0);
+//     const next = (current + 45) % 360;
+
+//     selectedPiece.dataset.rotation = next;
+//     selectedPiece.style.transform = `rotate(${next}deg)`;
+
+//     updatePieceDropdown();
+// });
+
+// updatePieceDropdown();
 

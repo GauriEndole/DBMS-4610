@@ -18,17 +18,37 @@
             <div class="tangram-piece square"></div>
             <div class="tangram-piece triangle-middle "></div>
             <div class="tangram-piece parallelogram"></div>
-            <!-- below symbol is from a Unicode characters/symbol -->
-            <button id="rotate-btn" class="rotate-btn" aria-label="Rotate selected piece">↻</button>
-            <button id="left-btn" class="left-btn" aria-label="Shift left selected piece">←</button>
-            <button id="right-btn" class="right-btn" aria-label="Shift right selected piece">→</button>
-            <button id="up-btn" class="up-btn" aria-label="Rotate Shift up piece">ꜛ</button>
-            <button id="down-btn" class="down-btn" aria-label="Shift down selected piece">ꜜ</button>
         </div>
         <div class="target-board">
             <img src="/TangramPuzzle/images/TargetImage-NoBorder.png" alt="Tangram target outline">
         </div>
     </div>
+    <div class="controls">
+        <!-- below symbol is from a Unicode characters/symbol -->
+        <button id="rotate-btn" class="rotate-btn"
+                aria-label="Rotate selected piece">↻</button>
+        <button id="left-btn" class="left-btn"
+                aria-label="Shift left selected piece">←</button>
+        <button id="right-btn" class="right-btn"
+                aria-label="Shift right selected piece">→</button>
+        <button id="up-btn" class="up-btn"
+                aria-label="Shift up selected piece">ꜛ</button>
+        <button id="down-btn" class="down-btn"
+                aria-label="Shift down selected piece">ꜜ</button>
+    </div>
+    <div class="piece-selector">
+        <label for="piece-dropdown">Select a piece:</label>
+        <select id="piece-dropdown">
+            <option value="triangle-left">Purple Triangle — 0°</option>
+            <option value="triangle-top">Blue Triangle — 0°</option>
+            <option value="triangle-right">Red Triangle — 0°</option>
+            <option value="triangle-corner">Dark Purple Triangle — 0°</option>
+            <option value="square">Green Square - 0°</option>
+            <option value="triangle-middle">Teal Triangle — 0°</option>
+            <option value="parallelogram">Orange Parallelogram — 0°</option>
+        </select>
+    </div>
+ 
     
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
