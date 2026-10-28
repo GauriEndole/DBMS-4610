@@ -96,6 +96,8 @@ rotateBtn.addEventListener("click", () => {
 
     selectedPiece.dataset.rotation = next;
     selectedPiece.style.transform = `rotate(${next}deg)`;
+
+    updatePieceDropdown();
 });
 
 // Move selected piece
@@ -146,52 +148,30 @@ pieceDropdown.addEventListener("change", () => {
     }
 });
 
-// function updatePieceDropdown() {
-//     pieces.forEach((piece) => {
-//         const pieceClass = [...piece.classList].find(
-//             (className) => className !== "tangram-piece"
-//         );
+function updatePieceDropdown() {
+    pieces.forEach((piece) => {
+        const pieceClass = [...piece.classList].find(
+            (className) => className !== "tangram-piece"
+        );
 
-//         const option = pieceDropdown.querySelector(
-//             `option[value="${pieceClass}"]`
-//         );
+        const option = pieceDropdown.querySelector(
+            `option[value="${pieceClass}"]`
+        );
 
-//         if (option) {
-//             const angle = Number(piece.dataset.rotation || 0);
-//             const labels = {
-//                 "triangle-left": "Purple Triangle",
-//                 "triangle-top": "Blue Triangle",
-//                 "triangle-right": "Red Triangle",
-//                 "triangle-corner": "Dark Purple Triangle",
-//                 "square": "Green Square",
-//                 "triangle-middle": "Teal Triangle",
-//                 "parallelogram": "Orange Parallelogram"
-//             };
+        if (option) {
+            const angle = Number(piece.dataset.rotation || 0);
+            const labels = {
+                "triangle-left": "Purple Triangle",
+                "triangle-top": "Blue Triangle",
+                "triangle-right": "Red Triangle",
+                "triangle-corner": "Dark Purple Triangle",
+                "square": "Green Square",
+                "triangle-middle": "Teal Triangle",
+                "parallelogram": "Orange Parallelogram"
+            };
 
-//             option.textContent = `${labels[pieceClass]} — ${angle}°`;
-//         }
-//     });
-// }
-// rotateBtn.addEventListener("click", () => {
-//     if (!selectedPiece) return;
-
-//     const current = Number(selectedPiece.dataset.rotation || 0);
-//     const next = (current + 45) % 360;
-
-//     selectedPiece.dataset.rotation = next;
-//     selectedPiece.style.transform = `rotate(${next}deg)`;
-// });
-// rotateBtn.addEventListener("click", () => {
-//     if (!selectedPiece) return;
-
-//     const current = Number(selectedPiece.dataset.rotation || 0);
-//     const next = (current + 45) % 360;
-
-//     selectedPiece.dataset.rotation = next;
-//     selectedPiece.style.transform = `rotate(${next}deg)`;
-
-//     updatePieceDropdown();
-// });
-
-// updatePieceDropdown();
+            option.textContent = `${labels[pieceClass]} — ${angle}°`;
+        }
+    });
+}
 
